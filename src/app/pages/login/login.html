@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="h-screen files items-center justify-center">
+  <form class="shadow-md rounded-ad p-5 bg-white w-1/6">
+    <div class="py-4">
+      <h1 class="font-old py-2">
+        Login
+      </h1>
+
+      <h6 class="text-slate-600 text-base">
+        Logar na sua conta
+      </h6>
+    </div>
+
+    <mat-form-field apperance="fill" class="w-full">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" />
+      <mat-icon matPrefix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field apperance="fill" class="w-full">
+      <mat-label>Password</mat-label>
+      <input matInput type="{{ hide ? 'password' : 'text'}}" placeholder="Password" />
+      <mat-icon matPrefix>lock</mat-icon>
+      <mat-icon (click)="hide=!hide" matSuffix>
+        {{hide ? 'visibility_off' : 'visibility'}}
+      </mat-icon>
+    </mat-form-field>
+
+    <button type="submit" class=" w-full border border-slate-200 rounded-md disabled:bg-purple-400 py-2 px-3 bg-purple-700 text-white font-bold">
+      Login
+    </button>
+
+  </form>
+  </div>
