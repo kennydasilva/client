@@ -31,6 +31,23 @@ export class Auth {
 
   }
 
+  getUserDetails=()=>{
+    const token = this.getToken();
+    if(!token) return null;
+
+    const decodedToken: any = jwtDecode(token);
+
+    const userDetail ={
+      id: decodedToken.nameid,
+      fullName:decodedToken.name,
+      email:decodedToken.email,
+      roles
+      :decodedToken.role  || []
+    }
+
+    return userDetail;
+  }
+
   isLoggedIn =(): boolean =>{
     const token= this.getToken();
     if(!token) return false;

@@ -8,15 +8,19 @@
 
     <div class="w-full"></div>
     @if(isLoggedIn()){
-      <div>
+      <div *ngif="authService.getUserDetail() as userDetail">
         <div class="flex gap5 items-center">
           <a [matMenuTriggerFor]="menu" class="flex gap2 cursor-pointer items-center">
             <div class="bg-red-400 text-white font-bold shadow-md rouded-full w-5 h-5 p-5 flex justify-center">
-              A
+              {{userDetail!.fullName[0].toUpperCase()}}
             </div>
             <div class="text-white flex flex-col">
-              <h1 class="m-0 p-0 font-medium">Pushpa</h1>
-              <p class="m-0 p-0 font-medium text-xs">roles</p>
+              <h1 class="m-0 p-0 font-medium">
+                {{userDetail?.fullName}}
+              </h1>
+              <p class="m-0 p-0 font-medium text-xs">
+                {{userDetail}}
+              </p>
             </div>
           </a>
           <mat-menu #menu="matMenu">
